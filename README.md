@@ -1,2 +1,2 @@
 # Data-Structures-Algorithms
-This Repository contains various COMPETITIVE PROGRAMMING questions and their solutions I have done through Algorithms using C++.
+This Repository contains various COMPETITIVE PROGRAMMING Algorithms, Problems and their solutions I have done using C++.

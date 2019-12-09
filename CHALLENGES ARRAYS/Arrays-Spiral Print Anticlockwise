@@ -1,0 +1,92 @@
+Take as input a 2-d array. Print the 2-D array in spiral form anti-clockwise.
+
+Input Format
+Two integers M(row) and N(colomn) and further M * N integers(2-d array numbers).
+
+Constraints
+Both M and N are between 1 to 10.
+
+Output Format
+All M * N integers separated by commas with 'END' written in the end(as shown in example).
+
+Sample Input
+4 4
+11 12 13 14
+21 22 23 24
+31 32 33 34
+41 42 43 44
+Sample Output
+11, 21, 31, 41, 42, 43, 44, 34, 24, 14, 13, 12, 22, 32, 33, 23, END
+Explanation
+For spiral level anti-clockwise traversal, Go for first column-> last row ->last column-> first row and then do the same traversal for the remaining matrix .
+
+<CODE>
+
+
+#include <bits/stdc++.h> 
+using namespace std; 
+
+int main() 
+{
+    int m,n;
+    cin>>m>>n;
+    int arr[m][n];  
+    for(int d=0;d<m;d++){
+        for(int w=0;w<n;w++){
+            cin>>arr[d][w];
+        }
+    }
+	int i, k = 0, l = 0; 
+	int cnt = 0; 
+	int total = m * n; 
+
+	while (k < m && l < n) 
+	{ 
+		if (cnt == total) 
+			break; 
+		for (i = k; i < m; ++i) 
+		{ 
+			cout << arr[i][l] << ", "; 
+			cnt++; 
+		} 
+		l++; 
+
+		if (cnt == total) 
+			break; 
+		for (i = l; i < n; ++i) 
+		{ 
+			cout << arr[m - 1][i] << ", "; 
+			cnt++; 
+		} 
+		m--; 
+
+		if (cnt == total) 
+			break; 
+		if (k < m) 
+		{ 
+			for (i = m - 1; i >= k; --i) 
+			{ 
+				cout << arr[i][n - 1] << ", "; 
+				cnt++; 
+			} 
+			n--; 
+		} 
+
+		if (cnt == total) 
+			break; 
+		if (l < n) 
+		{ 
+			for (i = n - 1; i >= l; --i) 
+			{ 
+				cout << arr[k][i] << ", "; 
+				cnt++; 
+			} 
+			k++; 
+		} 
+	} 
+	cout<<"END";
+
+
+
+	return 0; 
+} 
